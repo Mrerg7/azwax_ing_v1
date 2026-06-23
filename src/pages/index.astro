@@ -109,8 +109,20 @@ const useCases = [
   <!-- ============================================ -->
   <!-- HERO                                         -->
   <!-- ============================================ -->
-  <header class="relative overflow-hidden premium-gradient">
-    <div class="max-w-5xl mx-auto px-6 pt-16 pb-20 md:pt-20 md:pb-24 text-center">
+  <header class="relative overflow-hidden">
+    <!-- Hero image (Cloudflare Images CDN) -->
+    <div class="absolute inset-0 opacity-25 sm:opacity-35">
+      <img
+        src={heroImage}
+        alt="Arizona waxing and beauty services — premium domain background"
+        class="w-full h-full object-cover"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-desert-sand via-desert-sand/70 to-desert-sand/40"></div>
+    </div>
+
+    <div class="relative z-10 max-w-5xl mx-auto px-6 pt-16 pb-20 md:pt-20 md:pb-24 text-center">
       <!-- Badge -->
       <div class="inline-flex items-center gap-x-2 mb-6">
         <div class="modern-pill flex items-center gap-x-1.5">
