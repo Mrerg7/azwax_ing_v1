@@ -1,0 +1,8 @@
+name = "azwax-ing"
+compatibility_date = "2026-06-01"
+
+[assets]
+directory = "./dist"
+
+[vars]
+SITE_URL = "https://azwax.ing"

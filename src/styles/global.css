@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: #F8F1E9;
+}
+
+/* Premium gradient */
+.premium-gradient {
+  background: linear-gradient(135deg, #F8F1E9 0%, #F0E6D9 100%);
+}
+
+/* Glass card */
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid #EDE4D7;
+}
+
+/* Value card hover */
+.value-card {
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.value-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+/* Primary CTA */
+.cta-primary {
+  background: #B85C38;
+  transition: all 0.3s ease;
+}
+
+.cta-primary:hover {
+  background: #A04E30;
+  box-shadow: 0 8px 30px rgba(184, 92, 56, 0.3);
+  transform: translateY(-1px);
+}
+
+/* Secondary CTA */
+.cta-secondary {
+  border: 1px solid #D4C9B8;
+  transition: all 0.3s ease;
+}
+
+.cta-secondary:hover {
+  border-color: #B85C38;
+  background: rgba(184, 92, 56, 0.04);
+}
+
+/* Modern pill badge */
+.modern-pill {
+  background: rgba(184, 92, 56, 0.08);
+  color: #B85C38;
+  font-weight: 600;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+}
+
+/* Nav scrolled */
+.nav-scrolled {
+  box-shadow: 0 1px 0 0 rgb(0 0 0 / 0.05);
+}
+
+/* Tabular nums for stats */
+.stat-number {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Sticky CTA for mobile */
+.sticky-cta {
+  background: rgba(248, 241, 233, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid #EDE4D7;
+}

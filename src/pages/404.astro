@@ -1,0 +1,25 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout
+  title="404 — Page Not Found | azwax.ing"
+  noindex={true}
+>
+  <div class="min-h-screen flex items-center justify-center px-4 bg-desert-sand">
+    <div class="text-center">
+      <div class="text-8xl sm:text-9xl font-extrabold tracking-tighter text-desert-terracotta mb-6 font-serif">
+        404
+      </div>
+      <h1 class="text-2xl sm:text-3xl font-semibold text-desert-charcoal mb-4">Page Not Found</h1>
+      <p class="text-desert-warm max-w-md mx-auto mb-10 text-sm sm:text-base leading-relaxed">
+        The page you're looking for doesn't exist or has been moved.
+        Explore the opportunity to own the premium domain for Arizona waxing and hair removal services.
+      </p>
+      <a href="/"
+         class="inline-flex items-center gap-2 px-8 py-3 rounded-full border border-desert-terracotta/30 hover:bg-desert-terracotta hover:text-white text-desert-terracotta font-semibold text-sm transition-all duration-300">
+        Return Home
+      </a>
+    </div>
+  </div>
+</MainLayout>
