@@ -15,8 +15,11 @@ const {
   noindex = false,
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const siteUrl = 'https://azwax.ing';
+const canonicalPath = Astro.url.pathname.endsWith('/')
+  ? Astro.url.pathname
+  : `${Astro.url.pathname}/`;
+const canonicalURL = new URL(canonicalPath, siteUrl);
 const siteName = 'azwax.ing';
 const contactEmail = 'sales@desertrich.com';
 
@@ -139,7 +142,11 @@ const structuredData = {
   <!-- Canonical -->
   <link rel="canonical" href={canonicalURL} />
 
-  {noindex && <meta name="robots" content="noindex" />}
+  {noindex ? (
+    <meta name="robots" content="noindex, follow" />
+  ) : (
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  )}
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
