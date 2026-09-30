@@ -4,24 +4,21 @@ import '../styles/global.css';
 export interface Props {
   title?: string;
   description?: string;
-  image?: string;
+  path?: string;
   noindex?: boolean;
 }
 
 const {
-  title = "azwax.ing • Premium Domain for Sale | Arizona Waxing",
-  description = "Own azwax.ing — the premium, action-oriented domain for professional body waxing, facial waxing, and expert hair removal across Arizona. Rare .ing TLD + strong geo keywords.",
-  image = "https://imagedelivery.net/-sPAUAWeA405NiWJ0SNIQA/43f3f375-93e2-40c4-622c-10f903a25900/public",
+  title = 'azwax.ing | Premium Domain for Sale | Desert Rich',
+  description = 'azwax.ing is available now — a short, geo-aligned .ing domain for professional waxing across Arizona. Price on request. Inquire at sales@desertrich.com.',
+  path = '/',
   noindex = false,
 } = Astro.props;
 
 const siteUrl = 'https://azwax.ing';
-const canonicalPath = Astro.url.pathname.endsWith('/')
-  ? Astro.url.pathname
-  : `${Astro.url.pathname}/`;
-const canonicalURL = new URL(canonicalPath, siteUrl);
-const siteName = 'azwax.ing';
+const canonicalURL = new URL(path, siteUrl);
 const contactEmail = 'sales@desertrich.com';
+const year = new Date().getFullYear();
 
 const structuredData = {
   '@context': 'https://schema.org',
@@ -30,151 +27,305 @@ const structuredData = {
       '@type': 'WebSite',
       '@id': `${siteUrl}/#website`,
       url: siteUrl,
-      name: siteName,
+      name: 'azwax.ing',
       description,
       inLanguage: 'en-US',
+      publisher: { '@id': `${siteUrl}/#org` },
+    },
+    {
+      '@type': 'Organization',
+      '@id': `${siteUrl}/#org`,
+      name: 'Desert Rich',
+      email: contactEmail,
+      url: siteUrl,
     },
     {
       '@type': 'WebPage',
-      '@id': `${canonicalURL}#webpage`,
-      url: canonicalURL,
+      '@id': `${canonicalURL.href}#webpage`,
+      url: canonicalURL.href,
       name: title,
       description,
       isPartOf: { '@id': `${siteUrl}/#website` },
       inLanguage: 'en-US',
-      primaryImageOfPage: {
-        '@type': 'ImageObject',
-        url: image,
-      },
+      about: { '@id': `${siteUrl}/#domain` },
     },
     {
       '@type': 'Product',
-      name: `${siteName} — Premium Domain Name`,
-      description: 'The premium, action-oriented .ing domain for professional waxing and hair removal services across Arizona. Combines strong geo keywords with a modern, verb-driven TLD for instant brand authority.',
+      '@id': `${siteUrl}/#domain`,
+      name: 'azwax.ing',
+      category: 'Premium domain name',
+      description:
+        'Short .ing domain combining Arizona geography with the waxing keyword. Offered for acquisition to a qualified buyer.',
       url: siteUrl,
-      image: image,
-      category: 'Domain Name',
-      brand: {
-        '@type': 'Brand',
-        name: siteName,
-      },
+      brand: { '@type': 'Brand', name: 'azwax.ing' },
       offers: {
         '@type': 'Offer',
-        url: canonicalURL,
+        url: `${siteUrl}/#acquire`,
         availability: 'https://schema.org/InStock',
-        price: 0,
         priceCurrency: 'USD',
-        seller: {
-          '@type': 'Organization',
-          name: 'Desert Rich',
-          email: contactEmail,
-        },
-        hasMerchantReturnPolicy: {
-          '@type': 'MerchantReturnPolicy',
-          applicableCountry: 'US',
-          returnPolicyCategory: 'https://schema.org/MerchantReturnNotPermitted',
-          merchantReturnDays: 0,
-          name: 'No Returns',
-          description: 'Due to the nature of digital domain name assets, returns are not applicable after transfer.',
-        },
-        shippingDetails: {
-          '@type': 'OfferShippingDetails',
-          shippingRate: {
-            '@type': 'MonetaryAmount',
-            value: 0,
-            currency: 'USD',
-          },
-          deliveryTime: {
-            '@type': 'ShippingDeliveryTime',
-            handlingTime: {
-              '@type': 'QuantitativeValue',
-              minValue: 1,
-              maxValue: 5,
-              unitCode: 'DAY',
-            },
-            transitTime: {
-              '@type': 'QuantitativeValue',
-              minValue: 0,
-              maxValue: 0,
-              unitCode: 'DAY',
-            },
-          },
-          shippingDestination: {
-            '@type': 'DefinedRegion',
-            addressCountry: 'US',
-          },
-        },
-      },
-      review: {
-        '@type': 'Review',
-        reviewRating: {
-          '@type': 'Rating',
-          ratingValue: '5',
-          bestRating: '5',
-        },
-        author: {
-          '@type': 'Organization',
-          name: 'Desert Rich',
-        },
-      },
-      aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: '5',
-        bestRating: '5',
-        ratingCount: 1,
-        reviewCount: 1,
+        description: 'Price provided on qualified inquiry. Transfer settled by escrow.',
+        seller: { '@id': `${siteUrl}/#org` },
       },
     },
   ],
 };
+
+const nav = [
+  { href: '/#why', label: 'Why this name' },
+  { href: '/#market', label: 'The market' },
+  { href: '/#uses', label: 'Uses' },
+  { href: '/guide/', label: 'Buyer guide' },
+];
 ---
 
 <!DOCTYPE html>
-<html lang="en" class="">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{title}</title>
-  <meta name="description" content={description} />
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script is:inline>
+      (function () {
+        try {
+          var t = localStorage.getItem('theme');
+          if (t === 'dark' || (!t && matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="google-site-verification" content="k_UZAw_tLfLR3IRm_pO2ipEP8pPkwN3V8686-c9p1CI" />
+    <link rel="canonical" href={canonicalURL.href} />
+    {noindex ? (
+      <meta name="robots" content="noindex, follow" />
+    ) : (
+      <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    )}
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL.href} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content="azwax.ing" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="theme-color" content="#f6f1e8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,640&family=Outfit:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  </head>
+  <body class="bg-desert-sand text-desert-charcoal font-sans antialiased">
+    <a href="#content" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-desert-charcoal focus:px-4 focus:py-3 focus:text-desert-sand">
+      Skip to content
+    </a>
+    <header class="sticky top-0 z-40 border-b border-desert-border bg-desert-sand/90 backdrop-blur-md">
+      <div class="mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-4 md:h-20 md:px-6">
+        <a href="/" class="flex min-h-12 items-center gap-2.5">
+          <span class="grid h-9 w-9 place-items-center rounded-xl bg-desert-terracotta text-sm font-semibold text-white dark:text-desert-sand">AZ</span>
+          <span class="text-lg font-semibold tracking-tight">azwax<span class="text-desert-terracotta">.ing</span></span>
+        </a>
+        <nav class="hidden items-center gap-1 md:flex" aria-label="Primary">
+          {nav.map((item) => (
+            <a href={item.href} class="rounded-full px-3 py-2 text-sm font-medium text-desert-sage hover:bg-desert-cream hover:text-desert-charcoal">
+              {item.label}
+            </a>
+          ))}
+        </nav>
+        <div class="flex items-center gap-1">
+          <button type="button" id="theme-toggle" aria-label="Toggle color theme" class="grid h-12 w-12 place-items-center rounded-full hover:bg-desert-cream">
+            <svg class="hidden h-5 w-5 dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+            <svg class="h-5 w-5 dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 14.5A8.5 8.5 0 1 1 9.5 3 7 7 0 0 0 21 14.5z"/></svg>
+          </button>
+          <a href="/#acquire" class="cta-primary hidden min-h-12 items-center rounded-full px-5 text-sm font-semibold md:inline-flex">
+            Make an offer
+          </a>
+          <button type="button" id="menu-toggle" class="grid h-12 w-12 place-items-center rounded-full hover:bg-desert-cream md:hidden" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          </button>
+        </div>
+      </div>
+      <div id="mobile-nav" class="hidden border-t border-desert-border md:hidden">
+        <nav class="flex flex-col gap-1 px-4 py-3" aria-label="Mobile">
+          {nav.map((item) => (
+            <a href={item.href} class="flex min-h-12 items-center rounded-2xl px-3 text-base font-medium" data-close-nav>
+              {item.label}
+            </a>
+          ))}
+          <a href="/#acquire" class="cta-primary mt-1 flex min-h-12 items-center justify-center rounded-full px-4 text-base font-semibold" data-close-nav>
+            Make an offer
+          </a>
+        </nav>
+      </div>
+    </header>
 
-  <!-- Google Site Verification -->
-  <meta name="google-site-verification" content="k_UZAw_tLfLR3IRm_pO2ipEP8pPkwN3V8686-c9p1CI" />
+    <slot />
 
-  <!-- Canonical -->
-  <link rel="canonical" href={canonicalURL} />
+    <footer class="border-t border-desert-border bg-desert-paper">
+      <div class="mx-auto max-w-6xl px-4 py-14 md:px-6">
+        <div class="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p class="font-serif text-3xl tracking-tight">azwax.ing</p>
+            <p class="mt-2 max-w-md text-sm text-desert-muted">
+              A single premium name for Arizona waxing. Held by Desert Rich. Not a salon, and not a public listing.
+            </p>
+          </div>
+          <div class="flex flex-col gap-2 text-sm">
+            <a class="min-h-12 font-medium underline-offset-4 hover:underline" href={`mailto:${contactEmail}?subject=${encodeURIComponent('Acquisition Inquiry — azwax.ing')}`}>
+              {contactEmail}
+            </a>
+            <a href="/guide/" class="text-desert-sage hover:text-desert-charcoal">How acquisition works</a>
+          </div>
+        </div>
+        <p class="mt-10 max-w-3xl text-xs leading-relaxed text-desert-muted">
+          This website is for demonstration and informational purposes only. It does not constitute an offer of beauty
+          services, a commitment to deploy a brand, or a guarantee of rankings or revenue. Market figures are publicly
+          discussed estimates and are subject to change. Domain transfer follows registrar and escrow rules.
+        </p>
+        <p class="mt-4 text-xs text-desert-muted">© {year} azwax.ing · Desert Rich · Cloudflare</p>
+      </div>
+    </footer>
 
-  {noindex ? (
-    <meta name="robots" content="noindex, follow" />
-  ) : (
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-  )}
+    <div class="fixed inset-x-0 bottom-0 z-30 border-t border-desert-border bg-desert-sand/95 p-3 backdrop-blur md:hidden">
+      <a href="/#acquire" class="cta-primary flex min-h-12 items-center justify-center rounded-full px-4 text-sm font-semibold">
+        Inquire to acquire
+      </a>
+    </div>
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content={canonicalURL} />
-  <meta property="og:title" content={title} />
-  <meta property="og:description" content={description} />
-  <meta property="og:image" content={image} />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:site_name" content={siteName} />
-  <meta property="og:locale" content="en_US" />
+    <div id="exit-layer" class="fixed inset-0 z-50 hidden place-items-end bg-black/40 p-4 sm:place-items-center" role="presentation">
+      <div role="dialog" aria-modal="true" aria-labelledby="exit-title" class="w-full max-w-md rounded-3xl border border-desert-border bg-desert-paper p-6">
+        <div class="flex items-start justify-between gap-4">
+          <h2 id="exit-title" class="font-serif text-2xl">Take the brief with you</h2>
+          <button type="button" id="exit-close" class="grid h-12 w-12 place-items-center rounded-full hover:bg-desert-cream" aria-label="Dismiss">
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+          </button>
+        </div>
+        <p class="mt-2 text-sm text-desert-sage">
+          No discount clock. Leave your email and your mail app will open a note asking Desert Rich for the one-page brief.
+        </p>
+        <form id="exit-form" class="mt-5 flex flex-col gap-3">
+          <label class="text-sm font-medium" for="exit-email">Email</label>
+          <input id="exit-email" name="email" type="email" required autocomplete="email" class="min-h-12 rounded-2xl border border-desert-border bg-desert-sand px-4 text-base" placeholder="you@studio.com" />
+          <button type="submit" class="min-h-12 rounded-full bg-desert-charcoal px-4 text-sm font-semibold text-desert-sand">Request the brief</button>
+        </form>
+      </div>
+    </div>
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={title} />
-  <meta name="twitter:description" content={description} />
-  <meta name="twitter:image" content={image} />
+    <script is:inline>
+      (function () {
+        var email = 'sales@desertrich.com';
+        var subject = 'Acquisition Inquiry — azwax.ing';
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+        function mail(body) {
+          var q = 'subject=' + encodeURIComponent(subject);
+          if (body) q += '&body=' + encodeURIComponent(body);
+          return 'mailto:' + email + '?' + q;
+        }
 
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
-</head>
-<body class="bg-desert-sand text-desert-charcoal font-sans antialiased overflow-x-hidden">
-  <slot />
-</body>
+        var theme = document.getElementById('theme-toggle');
+        if (theme) {
+          theme.addEventListener('click', function () {
+            var next = !document.documentElement.classList.contains('dark');
+            document.documentElement.classList.toggle('dark', next);
+            try { localStorage.setItem('theme', next ? 'dark' : 'light'); } catch (e) {}
+          });
+        }
+
+        var menu = document.getElementById('menu-toggle');
+        var panel = document.getElementById('mobile-nav');
+        if (menu && panel) {
+          menu.addEventListener('click', function () {
+            var open = panel.classList.toggle('hidden') === false;
+            menu.setAttribute('aria-expanded', open ? 'true' : 'false');
+            menu.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+          });
+          panel.querySelectorAll('[data-close-nav]').forEach(function (link) {
+            link.addEventListener('click', function () {
+              panel.classList.add('hidden');
+              menu.setAttribute('aria-expanded', 'false');
+            });
+          });
+        }
+
+        document.querySelectorAll('[data-copy-email]').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var label = btn.querySelector('[data-copy-label]');
+            navigator.clipboard.writeText(email).then(function () {
+              if (label) {
+                var original = label.textContent;
+                label.textContent = 'Copied';
+                setTimeout(function () { label.textContent = original; }, 1600);
+              }
+            }).catch(function () {
+              window.location.href = mail();
+            });
+          });
+        });
+
+        var form = document.getElementById('inquiry-form');
+        if (form) {
+          form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            var data = new FormData(form);
+            var name = String(data.get('name') || '').trim();
+            var from = String(data.get('email') || '').trim();
+            var offer = String(data.get('offer') || '').trim();
+            var use = String(data.get('use') || '').trim();
+            var note = String(data.get('note') || '').trim();
+            var error = document.getElementById('inquiry-error');
+            var ok = document.getElementById('inquiry-ok');
+            if (name.length < 2 || from.indexOf('@') === -1) {
+              if (error) error.hidden = false;
+              return;
+            }
+            if (error) error.hidden = true;
+            if (ok) ok.hidden = false;
+            var body = 'Name: ' + name + '\nEmail: ' + from + '\nIntended use: ' + (use || 'Not specified') + '\nOffer: ' + (offer || 'Discuss') + '\n\n' + (note || 'I would like to discuss acquiring azwax.ing.');
+            window.location.href = mail(body);
+          });
+        }
+
+        var layer = document.getElementById('exit-layer');
+        var exitForm = document.getElementById('exit-form');
+        var exitClose = document.getElementById('exit-close');
+        function hideExit() { if (layer) layer.classList.add('hidden'); layer && layer.classList.remove('grid'); }
+        if (exitClose) exitClose.addEventListener('click', hideExit);
+        if (layer) {
+          layer.addEventListener('click', function (event) {
+            if (event.target === layer) hideExit();
+          });
+        }
+        if (exitForm) {
+          exitForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            var from = String(new FormData(exitForm).get('email') || '').trim();
+            window.location.href = mail('Please send the acquisition brief for azwax.ing.\n\nReply-to: ' + from);
+            hideExit();
+          });
+        }
+        var coarse = matchMedia('(pointer: coarse)').matches;
+        var seen = false;
+        try { seen = sessionStorage.getItem('azwax-exit') === '1'; } catch (e) { seen = true; }
+        if (!coarse && !seen) {
+          document.addEventListener('mouseout', function (event) {
+            if (event.clientY > 8 || event.relatedTarget) return;
+            try {
+              if (sessionStorage.getItem('azwax-exit') === '1') return;
+              sessionStorage.setItem('azwax-exit', '1');
+            } catch (e) { return; }
+            if (layer) {
+              layer.classList.remove('hidden');
+              layer.classList.add('grid');
+            }
+          });
+        }
+      })();
+    </script>
+  </body>
 </html>

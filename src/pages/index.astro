@@ -1,412 +1,237 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
 
-const heroImage = "https://imagedelivery.net/-sPAUAWeA405NiWJ0SNIQA/43f3f375-93e2-40c4-622c-10f903a25900/public";
-const contactEmail = "sales@desertrich.com";
-const subjectLine = "Acquisition Inquiry — azwax.ing";
-const mailtoLink = `mailto:${contactEmail}?subject=${encodeURIComponent(subjectLine)}`;
-
-const whyCards = [
-  {
-    icon: "fa-map-marked",
-    title: "Statewide Arizona Authority",
-    desc: "\"AZ\" instantly signals the entire Grand Canyon State — from the dominant Phoenix metro to Scottsdale, Tucson, and growing communities statewide.",
-  },
-  {
-    icon: "fa-bolt",
-    title: "Dynamic .ing TLD",
-    desc: "The modern, verb-driven extension evokes action and transformation — perfect for \"waxing,\" \"smoothing,\" and \"confidence building.\" Stands out in a crowded .com world.",
-  },
-  {
-    icon: "fa-search",
-    title: "High-Intent Keywords",
-    desc: "Combines the powerful \"wax\" keyword with clear geographic intent. Aligns naturally with searches for Arizona waxing, body waxing AZ, and professional hair removal.",
-  },
-  {
-    icon: "fa-expand",
-    title: "Exceptionally Versatile",
-    desc: "Ideal foundation for a flagship salon, multi-location group, mobile service, statewide booking platform, esthetician network, premium product line, or training academy.",
-  },
-  {
-    icon: "fa-shield-halved",
-    title: "Defensible Brand Moat",
-    desc: "Short, memorable, ownable, and scarce. True one-of-a-kind digital real estate that competitors cannot easily replicate or outrank.",
-  },
-  {
-    icon: "fa-rocket",
-    title: "Instant Credibility & SEO Lift",
-    desc: "Premium domains with clear geo + service alignment deliver faster trust signals and stronger local search performance from day one.",
-  },
+const why = [
+  ['Statewide Arizona authority', 'AZ reads instantly as the Grand Canyon State — Phoenix, Scottsdale, Tucson, and every growing community in between.'],
+  ['A verb-driven .ing', 'The extension implies action: waxing, smoothing, becoming. It stands apart from a crowded .com shelf.'],
+  ['High-intent keywords', 'Wax plus a clear geography lines up with searches for Arizona waxing, body waxing, and professional hair removal.'],
+  ['Built to stretch', 'Flagship salon, multi-location group, mobile service, booking network, academy, or a product line — the name holds.'],
+  ['A defensible moat', 'Five letters, one meaning, one owner. Competitors cannot copy the exact string.'],
+  ['Trust on day one', 'A precise geo-plus-service name shortens the explanation. People already understand what the brand does.'],
 ];
 
-const useCases = [
-  {
-    icon: "fa-store",
-    title: "Flagship Salon or Multi-Location Group",
-    desc: "Establish immediate authority as Arizona's premier waxing destination with a name that works across Phoenix, Scottsdale, and beyond.",
-  },
-  {
-    icon: "fa-mobile-screen-button",
-    title: "Mobile or Concierge Waxing Service",
-    desc: "Perfect for on-demand, in-home, or event-based services. Short, memorable, and instantly communicates professionalism statewide.",
-  },
-  {
-    icon: "fa-calendar-check",
-    title: "Statewide Booking Platform or Directory",
-    desc: "Become the trusted hub connecting clients with vetted estheticians and salons across Arizona.",
-  },
-  {
-    icon: "fa-graduation-cap",
-    title: "Waxing Academy or Training Brand",
-    desc: "Position as the educational leader for Arizona estheticians with a modern, ownable brand name.",
-  },
-  {
-    icon: "fa-flask",
-    title: "Premium Product Line or Aftercare",
-    desc: "Launch a signature line of hard waxes, oils, and aftercare products under a powerful, Arizona-rooted brand.",
-  },
-  {
-    icon: "fa-globe",
-    title: "National or Franchise Concept",
-    desc: "Use the strong Arizona flagship identity as the foundation for regional or national expansion in the beauty services space.",
-  },
+const uses = [
+  ['Salon', 'Flagship or multi-location salon', 'Open as Arizona’s waxing name, then carry the same mark from Phoenix to Scottsdale and beyond.'],
+  ['Mobile', 'Concierge and in-home service', 'Short enough for a booking link, clear enough for event cards and on-demand routes.'],
+  ['Platform', 'Statewide booking directory', 'The hub that matches clients with vetted estheticians — one address for the whole state.'],
+  ['Academy', 'Training and certification brand', 'Teach the craft under a name that already sounds like the Arizona standard.'],
+  ['Product', 'Wax, oil, and aftercare line', 'Put hard wax, oils, and aftercare under a brand rooted in the market that will use them.'],
+  ['Franchise', 'Regional or national concept', 'Start with an Arizona flagship identity, then extend the operating system to the next city.'],
+];
+
+const facts = [
+  ['Name', 'azwax.ing'],
+  ['Length', '5 letters + .ing'],
+  ['Category', 'Geo + service'],
+  ['Status', 'Available'],
+  ['Price', 'On request'],
+  ['Settlement', 'Escrow.com'],
+];
+
+const steps = [
+  ['01', 'Inquire', 'Share who you are, how you would use the name, and a range if you have one.'],
+  ['02', 'Structure', 'We answer with terms that fit the buyer. No public auction and no countdown.'],
+  ['03', 'Escrow', 'Funds and the domain move together through Escrow.com.'],
+  ['04', 'Transfer', 'Registrar push or auth code, typically within a few business days.'],
 ];
 ---
 
-<MainLayout>
-  <!-- ============================================ -->
-  <!-- NAVIGATION                                   -->
-  <!-- ============================================ -->
-  <nav class="bg-white/95 backdrop-blur-md border-b border-desert-border sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="flex items-center justify-between h-20">
-        <div class="flex items-center gap-x-3">
-          <div class="flex items-center gap-x-2">
-            <div class="w-9 h-9 bg-desert-terracotta rounded-xl flex items-center justify-center">
-              <span class="text-white text-2xl font-bold tracking-tighter">AZ</span>
+<MainLayout path="/">
+  <main id="content" class="pb-24 md:pb-0">
+    <section class="mx-auto grid max-w-6xl items-end gap-10 px-4 pb-8 pt-12 md:grid-cols-12 md:px-6 md:pb-16 md:pt-20">
+      <div class="md:col-span-7">
+        <p class="text-xs font-semibold uppercase tracking-widest text-desert-terracotta">Premium · Rare · One of a kind</p>
+        <h1 class="mt-4 font-serif text-6xl leading-none tracking-tight sm:text-7xl md:text-8xl">azwax.ing</h1>
+        <p class="mt-5 max-w-xl text-xl font-medium leading-snug text-desert-sage md:text-2xl">
+          Arizona’s definitive domain for professional waxing and hair removal.
+        </p>
+        <p class="mt-4 max-w-lg text-base text-desert-muted">
+          A modern .ing that pairs a state abbreviation with the service people already search for. Instant authority, statewide reach.
+        </p>
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <a href="#acquire" class="cta-primary inline-flex min-h-12 items-center justify-center rounded-full px-6 text-base font-semibold">Inquire to acquire</a>
+          <a href="#why" class="inline-flex min-h-12 items-center justify-center rounded-full border border-desert-border bg-desert-paper px-6 text-base font-semibold">See why it is scarce</a>
+        </div>
+      </div>
+      <aside class="rounded-3xl border border-desert-border bg-desert-paper p-6 md:col-span-5">
+        <div class="flex items-baseline justify-between gap-3">
+          <p class="text-sm font-medium text-desert-muted">Asking price</p>
+          <p class="rounded-full bg-desert-cream px-3 py-1 text-xs font-semibold uppercase tracking-wide text-desert-terracotta">One available</p>
+        </div>
+        <p class="mt-2 font-serif text-4xl">On request</p>
+        <p class="mt-1 text-sm text-desert-muted">Quoted to qualified buyers. Not listed as a bargain bin.</p>
+        <dl class="mt-6 divide-y divide-desert-border border-y border-desert-border">
+          {facts.map(([label, value]) => (
+            <div class="flex items-center justify-between gap-4 py-3 text-sm">
+              <dt class="text-desert-muted">{label}</dt>
+              <dd class="text-right font-medium">{value}</dd>
             </div>
-            <div>
-              <span class="font-semibold text-2xl tracking-tight">azwax</span>
-              <span class="font-semibold text-2xl tracking-tight text-desert-terracotta">.ing</span>
-            </div>
-          </div>
-        </div>
+          ))}
+        </dl>
+        <a href="#acquire" class="mt-6 flex min-h-12 items-center justify-center rounded-full bg-desert-charcoal text-sm font-semibold text-desert-sand">Make an offer</a>
+      </aside>
+    </section>
 
-        <div class="flex items-center gap-x-4">
-          <a href="#why" class="hidden md:block px-4 py-2 text-sm font-medium text-desert-sage hover:text-desert-charcoal transition-colors">Why This Domain</a>
-          <a href="#market" class="hidden md:block px-4 py-2 text-sm font-medium text-desert-sage hover:text-desert-charcoal transition-colors">The Market</a>
-          <a href="#use-cases" class="hidden md:block px-4 py-2 text-sm font-medium text-desert-sage hover:text-desert-charcoal transition-colors">Use Cases</a>
+    <section class="border-y border-desert-border bg-desert-paper" aria-label="Transfer assurances">
+      <ul class="mx-auto grid max-w-6xl gap-4 px-4 py-5 sm:grid-cols-3 md:px-6">
+        <li class="py-2"><p class="text-sm font-semibold">Escrow settlement</p><p class="text-sm text-desert-muted">Money and the name move together.</p></li>
+        <li class="py-2"><p class="text-sm font-semibold">Clean transfer</p><p class="text-sm text-desert-muted">Registrar push or auth code.</p></li>
+        <li class="py-2"><p class="text-sm font-semibold">HTTPS by default</p><p class="text-sm text-desert-muted">Canonical host is forced to https://azwax.ing.</p></li>
+      </ul>
+    </section>
 
-          <a href="#acquire"
-             class="inline-flex items-center justify-center px-6 py-2.5 bg-desert-terracotta hover:bg-desert-terracotta-dark text-white text-sm font-semibold rounded-2xl transition-all active:scale-[0.985]">
-            Make an Offer
-          </a>
-        </div>
+    <section id="why" class="mx-auto max-w-6xl scroll-mt-24 px-4 py-16 md:px-6 md:py-24">
+      <p class="text-xs font-semibold uppercase tracking-widest text-desert-terracotta">Strategic advantage</p>
+      <h2 class="mt-3 max-w-xl font-serif text-4xl md:text-5xl">Why azwax.ing is a rare premium asset</h2>
+      <p class="mt-4 max-w-lg text-desert-sage">Geography, the service keyword, and a modern extension — in one string.</p>
+      <div class="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        {why.map(([title, body]) => (
+          <article class="value-card rounded-3xl border border-desert-border bg-desert-paper p-6">
+            <h3 class="font-serif text-2xl">{title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-desert-sage">{body}</p>
+          </article>
+        ))}
       </div>
-    </div>
-  </nav>
+    </section>
 
-  <!-- ============================================ -->
-  <!-- PARALLAX HERO BACKGROUND                     -->
-  <!-- ============================================ -->
-  <div class="fixed inset-0 z-0">
-    <img
-      src={heroImage}
-      alt="Arizona waxing and beauty services — premium domain background"
-      class="w-full h-full object-cover"
-      loading="eager"
-      fetchpriority="high"
-    />
-    <div class="absolute inset-0 bg-gradient-to-t from-desert-sand via-desert-sand/35 to-desert-sand/5"></div>
-  </div>
-
-  <!-- ============================================ -->
-  <!-- HERO CONTENT                                 -->
-  <!-- ============================================ -->
-  <header class="relative z-10 min-h-screen flex flex-col items-center justify-center">
-    <div class="max-w-5xl mx-auto px-6 py-20 text-center">
-      <!-- Badge -->
-      <div class="inline-flex items-center gap-x-2 mb-6">
-        <div class="modern-pill flex items-center gap-x-1.5">
-          <i class="fa-solid fa-gem text-xs"></i>
-          <span>PREMIUM • RARE • ONE-OF-A-KIND</span>
-        </div>
-      </div>
-
-      <h1 class="text-6xl sm:text-7xl md:text-[4.5rem] leading-none font-extrabold tracking-[-0.04em] text-desert-charcoal mb-4 font-serif">
-        azwax.ing
-      </h1>
-
-      <p class="max-w-2xl mx-auto text-2xl md:text-3xl font-semibold tracking-tight text-desert-sage mb-6">
-        Arizona's definitive domain for<br class="hidden md:block" /> professional waxing &amp; hair removal.
-      </p>
-
-      <p class="max-w-lg mx-auto text-lg text-desert-warm mb-10">
-        The modern, action-oriented .ing domain that captures the entire Arizona beauty and grooming market.
-      </p>
-
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="#acquire"
-           class="group inline-flex items-center justify-center gap-x-3 w-full sm:w-auto px-9 py-4 cta-primary text-white font-semibold text-lg rounded-3xl transition-all active:scale-[0.985] shadow-lg shadow-desert-terracotta/20">
-          <span>Inquire to Acquire</span>
-          <i class="fa-solid fa-arrow-right group-hover:translate-x-0.5 transition-transform"></i>
-        </a>
-
-        <a href="#why"
-           class="inline-flex items-center justify-center w-full sm:w-auto px-8 py-4 cta-secondary text-desert-sage font-semibold text-lg rounded-3xl transition-all">
-          Explore the Opportunity
-        </a>
-      </div>
-
-      <div class="mt-8 flex items-center justify-center gap-x-6 text-sm text-desert-muted">
-        <div class="flex items-center gap-x-1.5">
-          <i class="fa-solid fa-check text-desert-terracotta"></i>
-          <span>Instant brand authority</span>
-        </div>
-        <div class="flex items-center gap-x-1.5">
-          <i class="fa-solid fa-check text-desert-terracotta"></i>
-          <span>Statewide reach</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Scroll indicator -->
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-desert-muted/60 animate-pulse-slow">
-      <span class="text-xs tracking-widest uppercase font-medium">Scroll</span>
-      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
-      </svg>
-    </div>
-  </header>
-
-  <!-- ============================================ -->
-  <!-- WHY THIS DOMAIN                              -->
-  <!-- ============================================ -->
-  <section id="why" class="relative z-10 bg-desert-sand max-w-7xl mx-auto px-6 py-16 md:py-20 border-t border-desert-border">
-    <div class="text-center mb-12">
-      <div class="inline-block modern-pill mb-3">STRATEGIC ADVANTAGE</div>
-      <h2 class="text-[2.25rem] leading-[2.5rem] font-bold tracking-tight text-desert-charcoal font-serif">
-        Why azwax.ing is a rare premium asset
-      </h2>
-      <p class="mt-4 max-w-md mx-auto text-desert-warm">
-        A perfect convergence of geography, service keywords, and modern branding.
-      </p>
-    </div>
-
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {whyCards.map((card) => (
-        <div class="value-card bg-white border border-desert-border rounded-3xl p-8">
-          <div class="w-12 h-12 bg-desert-sand rounded-2xl flex items-center justify-center mb-6">
-            <i class={`fa-solid ${card.icon} text-desert-terracotta text-2xl`}></i>
-          </div>
-          <h3 class="font-semibold text-xl tracking-tight mb-3">{card.title}</h3>
-          <p class="text-desert-warm leading-relaxed">{card.desc}</p>
-        </div>
-      ))}
-    </div>
-  </section>
-
-  <!-- ============================================ -->
-  <!-- MARKET OPPORTUNITY                           -->
-  <!-- ============================================ -->
-  <section id="market" class="relative z-10 bg-white border-y border-desert-border">
-    <div class="max-w-5xl mx-auto px-6 py-16 md:py-20">
-      <div class="grid md:grid-cols-12 gap-x-12 items-center">
+    <section id="market" class="scroll-mt-24 border-y border-desert-border bg-desert-paper">
+      <div class="mx-auto grid max-w-6xl gap-10 px-4 py-16 md:grid-cols-12 md:px-6 md:py-24">
         <div class="md:col-span-7">
-          <div class="modern-pill mb-4 inline-block">GROWING MARKET</div>
-          <h2 class="text-[2.25rem] leading-[2.5rem] font-bold tracking-tight text-desert-charcoal mb-6 font-serif">
-            Arizona's thriving beauty &amp; grooming economy
-          </h2>
-
-          <div class="prose prose-lg text-desert-sage">
-            <p class="mb-4">Arizona combines rapid population growth, strong tourism, and an active desert lifestyle that fuels consistent demand for professional, hygienic, and confidence-boosting hair removal services.</p>
-
-            <p>The Phoenix metropolitan area — the state's dominant market — continues to expand, while Scottsdale's luxury positioning and Tucson's growing communities add further depth. Warm climate, fitness culture, and year-round visitors create sustained need for expert waxing across body, facial, and specialized treatments.</p>
-          </div>
-        </div>
-
-        <div class="md:col-span-5 mt-10 md:mt-0">
-          <div class="bg-desert-sand rounded-3xl p-8 border border-desert-border">
-            <div class="space-y-6">
-              <div>
-                <div class="flex justify-between items-baseline mb-1">
-                  <span class="text-sm font-medium text-desert-muted">U.S. Hair Removal Market</span>
-                </div>
-                <div class="flex items-baseline gap-x-2">
-                  <span class="text-4xl font-semibold tracking-tighter stat-number">~$416M</span>
-                  <span class="text-sm text-desert-terracotta font-medium">2025</span>
-                </div>
-                <div class="text-xs text-desert-muted">Growing at ~6% CAGR through 2034</div>
-              </div>
-
-              <div class="pt-4 border-t border-desert-line">
-                <div class="text-sm font-medium text-desert-muted mb-2">Key Drivers in Arizona</div>
-                <ul class="space-y-2 text-sm">
-                  <li class="flex items-start gap-x-2"><i class="fa-solid fa-check text-desert-terracotta mt-1 text-xs"></i> <span>Fast-growing population &amp; in-migration</span></li>
-                  <li class="flex items-start gap-x-2"><i class="fa-solid fa-check text-desert-terracotta mt-1 text-xs"></i> <span>Strong tourism &amp; hospitality sector</span></li>
-                  <li class="flex items-start gap-x-2"><i class="fa-solid fa-check text-desert-terracotta mt-1 text-xs"></i> <span>Active outdoor lifestyle &amp; warm climate</span></li>
-                  <li class="flex items-start gap-x-2"><i class="fa-solid fa-check text-desert-terracotta mt-1 text-xs"></i> <span>Rising male grooming demand</span></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================ -->
-  <!-- USE CASES                                    -->
-  <!-- ============================================ -->
-  <section id="use-cases" class="relative z-10 bg-desert-sand max-w-7xl mx-auto px-6 py-16 md:py-20">
-    <div class="text-center mb-12">
-      <div class="modern-pill mb-3">ENDLESS POSSIBILITIES</div>
-      <h2 class="text-[2.25rem] leading-[2.5rem] font-bold tracking-tight text-desert-charcoal font-serif">
-        Built for ambitious brands and operators
-      </h2>
-      <p class="mt-3 max-w-md mx-auto text-desert-warm">
-        azwax.ing scales with your vision — from single-location excellence to statewide leadership.
-      </p>
-    </div>
-
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {useCases.map((uc) => (
-        <div class="group bg-white border border-desert-border hover:border-desert-terracotta/30 rounded-3xl p-8 transition-all">
-          <div class="flex items-center gap-x-4 mb-5">
-            <div class="text-desert-terracotta"><i class={`fa-solid ${uc.icon} text-2xl`}></i></div>
-            <h4 class="font-semibold text-lg">{uc.title}</h4>
-          </div>
-          <p class="text-desert-warm">{uc.desc}</p>
-        </div>
-      ))}
-    </div>
-  </section>
-
-  <!-- ============================================ -->
-  <!-- FINAL ACQUISITION CTA                        -->
-  <!-- ============================================ -->
-  <section id="acquire" class="relative z-10 bg-desert-charcoal text-white">
-    <div class="max-w-4xl mx-auto px-6 py-20 text-center">
-      <div class="max-w-2xl mx-auto">
-        <div class="inline-block px-4 py-1 bg-white/10 rounded-full text-sm font-medium tracking-wider mb-6">
-          RARE DIGITAL ASSET
-        </div>
-
-        <h2 class="text-5xl md:text-6xl font-semibold tracking-tighter mb-6 font-serif">
-          Own the name that defines<br />Arizona waxing.
-        </h2>
-
-        <p class="text-xl text-white/70 max-w-md mx-auto mb-10">
-          azwax.ing is a high-value, one-of-a-kind premium domain for qualified buyers seeking immediate market authority and long-term brand equity.
-        </p>
-
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href={mailtoLink}
-             class="inline-flex items-center justify-center gap-x-3 px-10 py-4 bg-white text-desert-charcoal hover:bg-desert-sand font-semibold text-lg rounded-3xl transition-all active:scale-[0.985]">
-            <span>Make an Offer</span>
-            <i class="fa-solid fa-envelope"></i>
-          </a>
-
-          <button onclick="copyEmail()"
-                  class="inline-flex items-center justify-center gap-x-3 px-8 py-4 border border-white/30 hover:bg-white/5 font-medium text-lg rounded-3xl transition-all">
-            <span>Copy Contact Email</span>
-          </button>
-        </div>
-
-        <p class="mt-8 text-sm text-white/50">
-          Serious inquiries only. Flexible acquisition structures available for the right buyer.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================ -->
-  <!-- STICKY MOBILE CTA                            -->
-  <!-- ============================================ -->
-  <div class="sticky-cta fixed bottom-0 left-0 right-0 z-50 sm:hidden px-4 py-3">
-    <a href={mailtoLink}
-       class="cta-primary w-full min-h-[48px] py-3 rounded-full text-white font-semibold text-sm flex items-center justify-center gap-2">
-      INQUIRE TO ACQUIRE — OWN THIS DOMAIN
-    </a>
-  </div>
-
-  <!-- ============================================ -->
-  <!-- FOOTER                                       -->
-  <!-- ============================================ -->
-  <footer class="relative z-10 bg-white border-t border-desert-border">
-    <div class="max-w-7xl mx-auto px-6 py-16">
-      <!-- Sophisticated Footer CTA -->
-      <div class="max-w-3xl mx-auto text-center mb-12">
-        <div class="inline-block modern-pill mb-4">DOMAIN AVAILABLE FOR ACQUISITION</div>
-        <h3 class="text-2xl sm:text-3xl font-bold text-desert-charcoal mb-4 font-serif">
-          Secure the definitive digital brand for Arizona waxing.
-        </h3>
-        <p class="text-desert-warm text-sm sm:text-base mb-8 max-w-lg mx-auto leading-relaxed">
-          azwax.ing is a rare, one-of-a-kind premium .ing domain strategically positioned for the growing Arizona beauty and grooming market. Qualified buyers are invited to inquire directly.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <a href={mailtoLink}
-             class="inline-flex items-center justify-center gap-x-3 px-8 py-3.5 bg-desert-terracotta hover:bg-desert-terracotta-dark text-white font-semibold rounded-2xl transition-all active:scale-[0.985] shadow-lg shadow-desert-terracotta/20">
-            <i class="fa-solid fa-envelope"></i>
-            <span>{contactEmail}</span>
-          </a>
-          <button onclick="copyEmail()"
-                  class="inline-flex items-center justify-center gap-x-2 px-6 py-3.5 border border-desert-line hover:border-desert-terracotta hover:bg-desert-terracotta/5 text-desert-charcoal font-medium rounded-2xl transition-all text-sm">
-            <i class="fa-regular fa-copy"></i>
-            <span>Copy Email</span>
-          </button>
-        </div>
-      </div>
-
-      <!-- Divider -->
-      <div class="border-t border-desert-border pt-8">
-        <!-- Disclaimer -->
-        <div class="max-w-3xl mx-auto text-center">
-          <p class="text-[11px] sm:text-xs text-desert-muted leading-relaxed mb-4">
-            This website is for demonstration and informational purposes only. It does not constitute an offer of services,
-            a commitment to deploy, or a guarantee of outcomes. All statistics, projections, and references to specific
-            technologies are based on publicly available information as of the date shown and are subject to change.
+          <p class="text-xs font-semibold uppercase tracking-widest text-desert-terracotta">Growing market</p>
+          <h2 class="mt-3 font-serif text-4xl md:text-5xl">Arizona’s beauty and grooming economy</h2>
+          <p class="mt-5 text-desert-sage">
+            Population growth, tourism, and a desert climate keep demand steady for professional hair removal. Phoenix is the center of gravity. Scottsdale adds a luxury tier. Tucson and the surrounding cities keep the map wide.
           </p>
-          <p class="text-[11px] sm:text-xs text-desert-line">
-            &copy; {new Date().getFullYear()} azwax.ing — Built with Astro + Cloudflare Pages
+          <p class="mt-4 text-desert-sage">
+            Warm weather, fitness culture, and year-round visitors support body, facial, and specialized waxing — including a rising share of male grooming.
           </p>
         </div>
+        <div class="rounded-3xl border border-desert-border bg-desert-sand p-6 md:col-span-5">
+          <p class="text-sm text-desert-muted">U.S. hair removal market, industry estimates</p>
+          <p class="mt-2 font-serif text-5xl tabular-nums">~$416M</p>
+          <p class="mt-1 text-sm text-desert-terracotta">2025 snapshot · roughly 6% CAGR cited through 2034</p>
+          <p class="mt-4 text-xs leading-relaxed text-desert-muted">
+            Figures are publicly discussed estimates, not a forecast for this domain. They describe the category the name sits in.
+          </p>
+          <ul class="mt-6 space-y-2 text-sm text-desert-sage">
+            <li>Fast in-migration and a growing metro</li>
+            <li>Tourism and hospitality that never fully pause</li>
+            <li>Outdoor life in a warm climate</li>
+            <li>More men booking grooming, not only women</li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </footer>
-</MainLayout>
+    </section>
 
-<!-- Font Awesome (loaded once, below fold) -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <section id="uses" class="mx-auto max-w-6xl scroll-mt-24 px-4 py-16 md:px-6 md:py-24">
+      <p class="text-xs font-semibold uppercase tracking-widest text-desert-terracotta">Endless possibilities</p>
+      <h2 class="mt-3 font-serif text-4xl md:text-5xl">Built for operators, not squatters</h2>
+      <p class="mt-4 max-w-lg text-desert-sage">The same name, six ways it earns its keep.</p>
+      <div class="mt-6 flex gap-2 overflow-x-auto pb-1" id="use-filters" role="tablist" aria-label="Use cases">
+        {['All', 'Salon', 'Mobile', 'Platform', 'Academy', 'Product', 'Franchise'].map((tag, i) => (
+          <button type="button" role="tab" data-filter={tag} aria-selected={i === 0 ? 'true' : 'false'} class:list={['min-h-12 shrink-0 rounded-full px-4 text-sm font-medium', i === 0 ? 'bg-desert-charcoal text-desert-sand' : 'bg-desert-cream text-desert-sage']}>
+            {tag}
+          </button>
+        ))}
+      </div>
+      <div class="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3" id="use-grid">
+        {uses.map(([tag, title, body]) => (
+          <article data-tag={tag} class="rounded-3xl border border-desert-border bg-desert-paper p-6">
+            <p class="text-xs font-semibold uppercase tracking-widest text-desert-terracotta">{tag}</p>
+            <h3 class="mt-2 font-serif text-xl">{title}</h3>
+            <p class="mt-3 text-sm leading-relaxed text-desert-sage">{body}</p>
+          </article>
+        ))}
+      </div>
+    </section>
 
-<script>
-  function copyEmail() {
-    const email = 'sales@desertrich.com';
-    navigator.clipboard.writeText(email).then(() => {
-      const btns = document.querySelectorAll('button');
-      btns.forEach(btn => {
-        if (btn.innerText.includes('Copy')) {
-          const original = btn.innerHTML;
-          btn.innerHTML = `<span>✓ Copied!</span>`;
-          setTimeout(() => {
-            btn.innerHTML = original;
-          }, 2200);
-        }
+    <section class="border-t border-desert-border bg-desert-cream">
+      <div class="mx-auto max-w-6xl px-4 py-16 md:px-6 md:py-24">
+        <p class="text-xs font-semibold uppercase tracking-widest text-desert-terracotta">The close</p>
+        <h2 class="mt-3 font-serif text-4xl md:text-5xl">Four steps. No theater.</h2>
+        <ol class="mt-10 grid gap-4 md:grid-cols-4">
+          {steps.map(([n, title, body]) => (
+            <li class="rounded-3xl border border-desert-border bg-desert-paper p-5">
+              <p class="font-serif text-3xl tabular-nums text-desert-terracotta">{n}</p>
+              <h3 class="mt-3 font-serif text-2xl">{title}</h3>
+              <p class="mt-2 text-sm text-desert-sage">{body}</p>
+            </li>
+          ))}
+        </ol>
+        <p class="mt-8 text-sm text-desert-muted">
+          Want the longer version? <a href="/guide/" class="font-medium text-desert-charcoal underline-offset-4 hover:underline">Read the buyer guide</a>.
+        </p>
+      </div>
+    </section>
+
+    <section id="acquire" class="scroll-mt-24 bg-desert-night text-desert-night-fg">
+      <div class="mx-auto grid max-w-6xl gap-10 px-4 py-16 md:grid-cols-12 md:px-6 md:py-24">
+        <div class="md:col-span-5">
+          <p class="text-xs font-semibold uppercase tracking-widest text-desert-terracotta">Available for acquisition</p>
+          <h2 class="mt-3 font-serif text-4xl leading-tight md:text-5xl">Own the name that defines Arizona waxing.</h2>
+          <p class="mt-4 text-desert-night-fg/80">One registrant. Flexible structures for the right operator. Qualified notes get a direct reply.</p>
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a href="mailto:sales@desertrich.com?subject=Acquisition%20Inquiry%20%E2%80%94%20azwax.ing" class="inline-flex min-h-12 items-center justify-center rounded-full bg-desert-paper px-5 text-sm font-semibold text-desert-charcoal">
+              sales@desertrich.com
+            </a>
+            <button type="button" data-copy-email class="inline-flex min-h-12 items-center justify-center rounded-full border border-desert-night-fg/30 px-5 text-sm font-medium">
+              <span data-copy-label>Copy email</span>
+            </button>
+          </div>
+        </div>
+        <form id="inquiry-form" class="rounded-3xl bg-desert-paper p-5 text-desert-charcoal md:col-span-7 md:p-7">
+          <div class="grid gap-4 sm:grid-cols-2">
+            <label class="block text-sm font-medium">Name
+              <input name="name" required autocomplete="name" class="mt-1.5 min-h-12 w-full rounded-2xl border border-desert-border bg-desert-sand px-3 text-base" />
+            </label>
+            <label class="block text-sm font-medium">Email
+              <input name="email" type="email" required autocomplete="email" class="mt-1.5 min-h-12 w-full rounded-2xl border border-desert-border bg-desert-sand px-3 text-base" />
+            </label>
+            <label class="block text-sm font-medium">Intended use
+              <select name="use" class="mt-1.5 min-h-12 w-full rounded-2xl border border-desert-border bg-desert-sand px-3 text-base">
+                <option>Flagship salon</option>
+                <option>Mobile / concierge</option>
+                <option>Booking platform</option>
+                <option>Academy</option>
+                <option>Product line</option>
+                <option>Other</option>
+              </select>
+            </label>
+            <label class="block text-sm font-medium">Offer (optional)
+              <input name="offer" autocomplete="off" placeholder="Range or discuss" class="mt-1.5 min-h-12 w-full rounded-2xl border border-desert-border bg-desert-sand px-3 text-base" />
+            </label>
+          </div>
+          <label class="mt-4 block text-sm font-medium">Note
+            <textarea name="note" rows="4" class="mt-1.5 w-full rounded-2xl border border-desert-border bg-desert-sand px-3 py-3 text-base" placeholder="City, timeline, and what you would build."></textarea>
+          </label>
+          <p id="inquiry-error" hidden class="mt-3 text-sm text-desert-terracotta">Add your name and a real email so the note can be answered.</p>
+          <p id="inquiry-ok" hidden class="mt-3 text-sm text-desert-sage">Your mail app should open with the inquiry filled in. Send it to reach us.</p>
+          <div class="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <button type="submit" class="cta-primary min-h-12 rounded-full px-6 text-sm font-semibold">Send inquiry</button>
+            <a href="mailto:sales@desertrich.com?subject=Acquisition%20Inquiry%20%E2%80%94%20azwax.ing&body=I%20would%20like%20to%20speak%20with%20the%20agent%20about%20azwax.ing." class="text-sm font-medium text-desert-sage underline-offset-4 hover:underline">Contact the agent instead</a>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+  <script is:inline>
+    (function () {
+      var buttons = document.querySelectorAll('#use-filters [data-filter]');
+      var cards = document.querySelectorAll('#use-grid [data-tag]');
+      buttons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var tag = btn.getAttribute('data-filter');
+          buttons.forEach(function (other) {
+            var on = other === btn;
+            other.setAttribute('aria-selected', on ? 'true' : 'false');
+            other.className = 'min-h-12 shrink-0 rounded-full px-4 text-sm font-medium ' + (on ? 'bg-desert-charcoal text-desert-sand' : 'bg-desert-cream text-desert-sage');
+          });
+          cards.forEach(function (card) {
+            var show = tag === 'All' || card.getAttribute('data-tag') === tag;
+            card.classList.toggle('hidden', !show);
+          });
+        });
       });
-    }).catch(() => {
-      window.location.href = `mailto:${email}`;
-    });
-  }
-
-  // Subtle scroll effect on nav
-  window.addEventListener('scroll', () => {
-    const nav = document.querySelector('nav');
-    if (window.scrollY > 20) {
-      nav?.classList.add('nav-scrolled', 'bg-white/95');
-    } else {
-      nav?.classList.remove('nav-scrolled');
-    }
-  });
-
-  console.log('%c[azwax.ing] Premium landing page ready. Astro + Cloudflare Pages.', 'color:#B85C38');
-</script>
+    })();
+  </script>
+</MainLayout>
